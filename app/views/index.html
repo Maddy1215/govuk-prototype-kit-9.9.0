@@ -1,0 +1,64 @@
+<html>
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+<head>
+    <meta charset="uft-8" />
+    <meta name="theme-color" content="#536878" />
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>Hello!</title>
+  </head>
+  GOV.UK Prototype Kit
+{% endblock %}
+<!-- Web Application Manifest -->
+    <link rel="manifest" href="manifest.json">
+{% block content %}
+<body>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        The GOV.UK Prototype Kit
+        <link rel="manifest" href="app\views\manifest.json">
+        <span class="govuk-caption-xl">{{releaseVersion}}</span>
+      </h1>{{releaseVersion | log }}
+      <p>
+        This kit lets you rapidly create HTML prototypes of GOV.UK services.
+      </p>
+
+      <p>
+        It contains all you need to prototype anything from simple static pages to complex, data-driven transactions.
+      </p>
+
+      <h2 class="govuk-heading-m">About this page</h2>
+
+      <p>We recommend you add links to your prototype to this page, rather than delete it.
+        You'll find this page in the kit at '/app/views/index.html'.</p>
+
+      <p>You can change the service name by editing the file '/app/config.js'.</p>
+
+      <h2 class="govuk-heading-m">Examples and documentation</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a href="/docs/tutorials-and-examples">Example pages and documentation</a>
+        </li>
+        <li>
+          <a href="https://design-system.service.gov.uk">GOV.UK Design System</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </body>
+  {% endblock %}
+  <script>
+    if ('serviceWorker' in navigator) {
+       console.log("Will the service worker register?");
+       navigator.serviceWorker.register('service-worker.js')
+         .then(function(reg){
+           console.log("Yes, it did.");
+        }).catch(function(err) {
+           console.log("No it didn't. This happened:", err)
+       });
+    }
+   </script>
+</html>

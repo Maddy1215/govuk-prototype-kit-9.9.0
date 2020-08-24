@@ -1,0 +1,15 @@
+{
+  "short_name": "CMG!",
+  "name": "CMG!",
+  "icons": [
+    {
+      "src":"images/govuk-apple-touch-icon-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "http://localhost:3000/",
+  "background_color": "#000",
+  "theme_color": "#536878",
+  "display": "standalone"
+}
