@@ -1,6 +1,13 @@
 // Core dependencies
 const fs = require('fs')
 const path = require('path')
+const https = require('https');
+var key = fs.readFileSync(__dirname + '/selfsigned.key');
+var cert = fs.readFileSync(__dirname + '/selfsigned.crt');
+var options = {
+  key: key,
+  cert: cert
+};
 
 // NPM dependencies
 const bodyParser = require('body-parser')
