@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="/url/of/previous/page">Back</a>
+  <a class="govuk-back-link" href="/account">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -25,7 +25,7 @@
             {{ data['full-name'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="#">
+            <a href="/register">
               Change
               <span class="govuk-visually-hidden"> name</span>
             </a>
@@ -39,7 +39,7 @@
           {{ data['passport-issued-day'] }} {{ data['passport-issued-month'] }} {{ data['passport-issued-year'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="#">
+            <a href="/register">
               Change
               <span class="govuk-visually-hidden"> date of birth</span>
             </a>
@@ -53,7 +53,7 @@
           {{ data['email-address'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="#">
+            <a href="/account">
               Change
               <span class="govuk-visually-hidden"> Email Address</span>
             </a>
@@ -67,7 +67,7 @@
             {{ data['file-upload-1'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="#">
+            <a href="/upload">
               Change
               <span class="govuk-visually-hidden"> ID</span>
             </a>
