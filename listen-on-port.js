@@ -5,7 +5,7 @@ const fs = require('fs')
 const path = require('path')
 const https = require('https');
 var key = fs.readFileSync(__dirname + '/selfsigned.key');
-var cert = fs.readFileSync(__dirname + '/selfsigned.crt');
+var cert = fs.readFileSync(__dirname + '/selfsigned.pem');
 var options = {
   key: key,
   cert: cert
@@ -23,12 +23,12 @@ utils.findAvailablePort(server, function (port) {
   console.log('Listening on port ' + port + '   url: http://localhost:' + port)
   if (env === 'production' || useBrowserSync === 'false') {
     server.listen(port)
-    var ser = https.createServer(options, server);
+     var ser = https.createServer(options, server);
   } else {
-    var ser = https.createServer(options, server);
+     var ser = https.createServer(options, server);
     ser.listen(port, () => {
       console.log("server starting on port : " + port)
-    });
+     });
     server.listen(port - 50, function () {
       browserSync({
         proxy: 'localhost:' + (port - 50),

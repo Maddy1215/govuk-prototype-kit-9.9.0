@@ -4,7 +4,44 @@
 if (window.console && window.console.info) {
   window.console.info('GOV.UK Prototype Kit - do not use for production')
 }
-
+var x=document.getElementById("govuk-button");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+        navigator.geolocation.getCurrentPosition(showPosition,showError,
+          {
+            enableHighAccuracy : true,
+            timeout : 10000, // 10s
+            //maximumAge : 0
+          }
+        );
+    }
+  else{x.innerHTML="Geolocation is not supported by this browser.";}
+  }
+  function showPosition(position)
+  {
+  x.innerHTML="Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;    
+  }
+function showError(error)
+  {
+  switch(error.code) 
+    {
+    case error.PERMISSION_DENIED:
+      x.innerHTML="User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML="Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML="The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML="An unknown error occurred."
+      break;
+    }
+  }
 function notifyMe() {
   //check if the browser supports notifications
   if (!("Notification" in window)) {
